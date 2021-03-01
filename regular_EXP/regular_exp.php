@@ -53,14 +53,19 @@
         }
         metacharacters{
             |->find a match for any one of the following pattern seprerated with 
-            |
+            a|b means or 
             . find just one instance of any character
             ^ find a match at the begining of a string 
             $ find a match at the end of the string 
-            \d fond a digit 
+            \d find a digit 
             \s find a white space character 
+            \S match non-white space 
             \b ind a match at the begining of a string like \bword or 
             at the end like word\b
+            \w-selects words including the digits except specia;
+            characters 
+            \W -match the non words 
+            \D Match the non-digits 
         }
     }        
         

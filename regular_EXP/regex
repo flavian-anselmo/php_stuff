@@ -1,0 +1,287 @@
+{
+ "metadata": {
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5-final"
+  },
+  "orig_nbformat": 2,
+  "kernelspec": {
+   "name": "python3",
+   "display_name": "Python 3.8.5 64-bit",
+   "metadata": {
+    "interpreter": {
+     "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+    }
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "['22', '33', '64', '21']\n['Janice', 'Theon', 'Gabriel', 'Joey']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "name_age='''Janice is 22 and Theon is 33 \n",
+    "        Gabriel is 64 and Joey is 21'''\n",
+    "age = re.findall(r'\\d{1,2}',name_age)\n",
+    "name = re.findall(r'[A-Z][a-z]*',name_age)\n",
+    "print(age)\n",
+    "print(name)  #all names start with an upper case     \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "'\\nboth the string and the REGEX HAVE THEIR OWN CURSOR \\n\\n'"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 3
+    }
+   ],
+   "source": [
+    "'''\n",
+    "both the string and the REGEX HAVE THEIR OWN CURSOR \n",
+    "\n",
+    "'''"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "there is inform\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "def search_word():\n",
+    "    if re.search(\"inform\",\"we need to inform him with the lates information\"):       #if the word inform is in the string return true \n",
+    "        print(\"there is inform\")\n",
+    "    else:\n",
+    "        print(\"invaid\")    \n",
+    "search_word()        \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "['inform', 'inform']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re\n",
+    "str_name=re.findall(\"inform\",\"we need to inform him with the lates information\")\n",
+    "print(str_name)#inform is found twice"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "(11, 17)\n(38, 44)\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re \n",
+    "str=\"we need to inform him with the latest information\"\n",
+    "#use finder iterator \n",
+    "for i in re.finditer(\"inform\",str):\n",
+    "    got_str=i.span()\n",
+    "    print(got_str)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "['put']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import re \n",
+    "str =\"sat, hat ,fat,mat,put\"\n",
+    "#match anything that ends with at \n",
+    "allstr=re.findall(\"[shfmp]ut\",str)\n",
+    "#prints only words that end with at\n",
+    "print(allstr)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "['sat', 'fat']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#series of range of characters  \n",
+    "import re \n",
+    "str=\"sat,hat,fat,mat\"\n",
+    "allstr=re.findall(\"[^h-m]at\",str)\n",
+    "#print only hat and mat since we have a range \n",
+    "print(allstr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "hat food mat pat\n"
+     ]
+    }
+   ],
+   "source": [
+    "food=\"hat rat mat pat\"\n",
+    "regex=re.compile(\"[r]at\")#fetch the word staring with r\n",
+    "food=regex.sub(\"food\",food)#replace the position of rat with food \n",
+    "print(food)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "\n            keep the blue flag \n            flying high chelsea \n        \n            keep the blue flag             flying high chelsea         \n"
+     ]
+    }
+   ],
+   "source": [
+    "randstr='''\n",
+    "            keep the blue flag \n",
+    "            flying high chelsea \n",
+    "        '''\n",
+    "print(randstr)        \n",
+    "regex=re.compile(\"\\n\")\n",
+    "randstr=regex.sub(\"\",randstr)#replace the \\n with white space \n",
+    "print(randstr)        \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "matches 0\n"
+     ]
+    }
+   ],
+   "source": [
+    "randstr=\"1,2,3,4,5,5,6\"\n",
+    "print(\"matches\",len(re.findall(\"\\d{2}\",randstr)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "valid\n"
+     ]
+    }
+   ],
+   "source": [
+    "#applications of ReGEX\n",
+    "'''\n",
+    "Here we are supposed to verify the phone numbers \n",
+    "all phone numbers should have \n",
+    "    -3 starting digits and '-' sign\n",
+    "    -3 middle digits and '-' sign\n",
+    "    -4 digits in the end \n",
+    "'''\n",
+    "def phone_number_verification():\n",
+    "    phone_No=\"123-345-5555\"  \n",
+    "    \n",
+    "    if re.findall(\"\\d{3}-\\d{3}-\\d{4}\",phone_No):\n",
+    "        print(\"valid\")\n",
+    "    else:\n",
+    "        print(\"invalid\")    \n",
+    "phone_number_verification()    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ]
+}

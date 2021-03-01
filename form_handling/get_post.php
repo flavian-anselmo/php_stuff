@@ -12,6 +12,10 @@
         <p> country <input type="text" name="country" value=""> </p>
         <input type="submit" value="submit" name="submit">
     </form>
-    
+    <form action="post.php" method="GET">
+        <p>name <input type="text" name="name" value=""></p>
+        <p> country <input type="text" name="country" value=""> </p>
+        <input type="submit" value="submit" name="submit">
+    </form> 
 </body>
 </html>

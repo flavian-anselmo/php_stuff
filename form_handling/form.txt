@@ -1,0 +1,12 @@
+to get form data we need to use php supergoals 
+the form request may be _GET OR _POST 
+GETrequest is the default  form request 
+the data passed through the get request is visible 
+on the url 
+POST request is widley used to submit form that have large 
+amount of data such asfile upload,image uload ,registration form
+ the datapassed ids not visible 
+ $_REQUEST->Variable contains the contant of both $_GET and $_POST
+ and also $_COOKIE
+ $_REQUEST can be used to get the results form data sent with both
+ the GET and POST Methods 

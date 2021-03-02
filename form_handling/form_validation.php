@@ -23,6 +23,7 @@
         -validate email
         -validate url
         -input length
+        validate->empty-theinput-format of text-
 
         $_SERVER["PHP_SELF] is a super global variable that returns the file name 
         of the currently executing script

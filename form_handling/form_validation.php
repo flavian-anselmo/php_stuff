@@ -54,8 +54,11 @@
         */
         //validate email
         ///VALIDATE NUMBER
+        /*
+        use fiter_var(variable,FILTER_VALIDATE_INT,EMAIL,URL,BOOLEAN)
+        */
         if(!empty($_POST["mail"]) && filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)){
-            $email=$_POST["mail"];
+            $email=htmlspecialchars($_POST["mail"]);
             echo "email ok";
 
         }else{

@@ -1,0 +1,22 @@
+openning
+    fopen("file.txt",mode)->used to open files 
+    files can be opened in various modes 
+    r->read only 
+    r+->reading and writing modes
+    w->opens file in open mode only 
+    a->opens file in append mode only 
+    a+->appending reading and writing mode
+reading
+    once the file is open it can be read
+    with a function called ->fread($file,filesize("file.txt"))
+    this function requires two argumets 
+    the file pointer and the the size 
+    of the file in bytes 
+    ->the length of file is gotten using filesize()
+writing 
+    text can be appeded into a file by the use of 
+    fwrite() function which takes two arguments 
+closing 
+    aftermaking a change i afike 
+    its good practise to close it 
+

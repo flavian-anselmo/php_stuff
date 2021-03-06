@@ -19,30 +19,7 @@
  * setcookie(name,value,expire,path,domain,security);
  */
 //make some validations
-$username=$password="";
-if(isset($_POST['submit'])){
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-        if(!empty($_POST['username']) and !empty($_POST['password'])){
-            //checking if the input is empty
-        
-            if(strlen($_POST['password'])>=8 and preg_match('/^\w{5,}$/',$username)){
-                
-                $password=htmlspecialchars($_POST['password']);
-                $username=htmlspecialchars($_POST['username']);
-                echo "valid username and password<br>";
-                setcookie("username",$username,time()+3600);//set cookies after the validation
-            }else{
-                echo "check the username or password";
-            }    
-            
-
-        }else{
-            echo "the fieds cant be empty";
-        }
-    }    
-}else{
-    echo "invalid";
-}   
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +33,47 @@ if(isset($_POST['submit'])){
     <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
         username:<input type="text" name="username" ><br>
         password:<input type="password" name="password">
-        <input type="submit" value=submit>
+        <input type="submit"   name ="submit" value=submit>
     </form>
+    <?php
+        #storing cookies 
+        #and doing form validations 
+        //first check if the submit button is clicked 
+        //use the isset($_POST["name"])-> function
+        $name=$passwd="";
+        if ($_SERVER["REQUEST_METHOD"]=="POST"){
+            //check for the button 
+            if (isset($_POST["submit"])){
+            
+                echo "hello web devs";
+                //check for empty inputs and validate the inputs 
+                if (!empty($_POST["username"]) and !empty($_POST["password"])){
+                    //validations using regular expressions 
+                    if(preg_match("/^[a-z|A-Z]+/i",$_POST["username"]) and preg_match("/\w+/",$_POST["password"])){
+                        //check for the length of password 
+                        if(count($_POST["password"])>=8){
+                            $name=$_POST["username"];
+                            $passwd=$_POST["password"];
+                            echo "we have inputs";
+                        }else{
+                            echo "weak password";
+                        }
+                    }else{
+                        echo "bad match_up";
+                    }
+
+                }else{
+                    echo "empty";
+                }
+
+
+            }else{
+                echo "nothing";
+            }
+            
+        }else{
+            echo "not a post method";
+        }    
+    ?>
 </body>
 </html>

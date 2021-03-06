@@ -8,11 +8,12 @@ if($filepointer==false){
 
 }else{
     $f_size=filesize("demofile.txt");
-    //print $f_size;
-    fwrite($filepointer,"Hello, world\n");
+    print $f_size;
+    //fwrite($filepointer,"Hello, world\n");
     while(!feof($filepointer)){
+        //used to read the content inthe file
          $f_read=fread($filepointer,$f_size);
-         fprintf($filepointer,$f_read);
+         echo ("$f_read");
     }
    
    

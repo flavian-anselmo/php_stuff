@@ -34,6 +34,8 @@
         <input type="submit" name="submit" >
     </form>    
     <?php
+        require('upload.php');
+        
         //uploading file to server temp dir 
         /**the form needs the following attribute 
          * enctype="multipart/form-data"->specifies which content type
@@ -59,7 +61,7 @@
              * }
              */
             
-        }
+        
 
     ?>
 </body>
